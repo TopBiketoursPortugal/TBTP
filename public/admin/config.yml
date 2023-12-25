@@ -1,0 +1,81 @@
+backend:
+  name: github
+  repo: TopBikeToursPortugal/TopBikeToursPortugal
+  branch: TBTP
+  site_url: https://topbiketoursportugalv2.netlify.app/
+# publish_mode: editorial_workflow
+media_folder: static/img
+public_folder: /img
+collections:
+  - name: menus
+    label: Menus
+    extension: json
+    format: json
+    folder: content/menus
+    create: true
+    widget: "object"
+    editor:
+      preview: false
+    fields:
+      - { label: Title, name: title, widget: "string" }
+      - label: "English"
+        name: en
+        widget: "object"
+        fields:
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - label: Display
+                name: display
+                widget: markdown
+              - label: Link
+                name: link
+                widget: text
+              - label: Description
+                name: description
+                widget: text
+                required: false
+              - label: Enabled
+                name: enabled
+                widget: boolean
+                default: true
+              - label: Is Home
+                name: isHome
+                widget: boolean
+                default: true
+              - label: Order
+                name: order
+                widget: number
+                default: 1
+      - label: "Português"
+        name: pt
+        widget: "object"
+        fields:
+          - label: Links
+            name: links
+            widget: list
+            fields:
+              - label: Display
+                name: display
+                widget: markdown
+              - label: Link
+                name: link
+                widget: text
+              - label: Description
+                name: description
+                widget: text
+                required: false
+              - label: Enabled
+                name: enabled
+                widget: boolean
+                default: true
+              - label: Is Home
+                name: isHome
+                widget: boolean
+                default: true
+              - label: Order
+                name: order
+                widget: number
+                default: 1
+  

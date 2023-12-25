@@ -1,18 +1,17 @@
-import { defineConfig } from "astro/config";
 import { astroImageTools } from "astro-imagetools";
+import { defineConfig } from "astro/config";
 
 import mdx from "@astrojs/mdx";
-import m2dx from "astro-m2dx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import rehypeExternalLinks from "rehype-external-links";
+import vue from "@astrojs/vue";
 import fauxRemarkEmbedder from "@remark-embedder/core";
 import fauxOembedTransformer from "@remark-embedder/transformer-oembed";
+import m2dx from "astro-m2dx";
+import rehypeExternalLinks from "rehype-external-links";
 const remarkEmbedder = fauxRemarkEmbedder.default;
 const oembedTransformer = fauxOembedTransformer.default;
-import vue from "@astrojs/vue";
 /** @type {import('astro-m2dx').Options} */
-import prefetch from "@astrojs/prefetch";
 import compress from "astro-compress";
 const m2dxOptions = {
   exportComponents: true,
@@ -22,24 +21,27 @@ const m2dxOptions = {
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://starfunnel.unfolding.io",
+  site: "https://topbiketoursportugalv2.netlify.app",
   integrations: [
     mdx({}),
     sitemap(),
     tailwind(),
     vue({
-      appEntrypoint: "/src/pages/_app",
+      entrypoint: "/src/pages/_app",
     }),
     astroImageTools,
-    /* prefetch(), */
+  
     compress({
       CSS: true,
-      HTML: false,
-      Image: false,
+      HTML: true,
+      Image: true,
       JavaScript: true,
       SVG: true,
     }),
   ],
+  prefetch: {
+    prefetchAll: false
+  },
   markdown: {
     extendDefaultPlugins: true,
     remarkPlugins: [
