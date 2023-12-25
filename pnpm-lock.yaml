@@ -89,6 +89,9 @@ dependencies:
   nanostores:
     specifier: 0.9.5
     version: 0.9.5
+  object-hash:
+    specifier: ^3.0.0
+    version: 3.0.0
   plyr:
     specifier: 3.7.8
     version: 3.7.8
